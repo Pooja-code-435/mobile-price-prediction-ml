@@ -1,0 +1,151 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+header {
+  background-color: #007bff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  user-select: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Main Container */
+.container.predict-page {
+  max-width: 600px;
+  background: white;
+  margin: 40px auto 60px auto;
+  padding: 35px 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #222;
+  text-align: center;
+}
+
+/* Form Styles */
+.predict-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.predict-form label {
+  font-weight: 600;
+  color: #007bff;
+  font-size: 1.1rem;
+}
+
+.predict-form input,
+.predict-form select {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.predict-form input:focus,
+.predict-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.predict-form button {
+  padding: 14px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.predict-form button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #bbb;
+  text-align: center;
+  padding: 18px 10px;
+  font-size: 0.9rem;
+  margin-top: auto;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container.predict-page {
+    margin: 30px 20px 50px 20px;
+    padding: 30px 25px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}

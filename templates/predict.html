@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Predict - Mobile Price Prediction System</title>
+  <link rel="stylesheet" href="static/css/predict.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    {% if prediction %}
+  <script>
+    Swal.fire({
+      title: '<strong>Predicted Price Category: {{ prediction }}</strong>',
+      icon: '{{ "warning" if "Low" in prediction|string else "success" }}',
+      html: `
+        <b>This is the predicted price range for your mobile based on the entered specifications.</b><br>
+        <p>Make sure to consider other features too when purchasing!</p>
+      `,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: `
+        <i class="fa fa-thumbs-up"></i> Nice!
+      `,
+      confirmButtonAriaLabel: "Thumbs up, nice!",
+      cancelButtonText: `
+        <i class="fa fa-thumbs-down"></i>
+      `,
+      cancelButtonAriaLabel: "Thumbs down"
+    });
+  </script>
+{% endif %}
+
+  <header>
+    <nav>
+      <div class="logo">MobilePricePredict</div>
+      <ul class="nav-links">
+        <li><a href="/" >Home</a></li>
+        <li><a href="/predict" class="active">Predict</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container predict-page">
+    <h1>Predict Mobile Price Category</h1>
+
+    <form action="/predict" method="POST" class="predict-form">
+  <label for="performance">Performance (1–10):</label>
+  <input type="number" id="performance" name="performance" min="1" max="10" step="0.1" required>
+
+  <label for="storage_capacity">Storage Capacity (GB):</label>
+  <input type="number" id="storage_capacity" name="storage_capacity" min="8" max="512" required>
+
+  <label for="camera_quality">Camera Quality (1–10):</label>
+  <input type="number" id="camera_quality" name="camera_quality" min="1" max="10" step="0.1" required>
+
+  <label for="battery_life">Battery Life (Hours):</label>
+  <input type="number" id="battery_life" name="battery_life" min="1" max="72" required>
+
+  <label for="weight">Weight (grams):</label>
+  <input type="number" id="weight" name="weight" min="100" max="400" required>
+
+  <label for="age">Age (Years):</label>
+  <input type="number" id="age" name="age" min="0" max="5" step="0.1" required>
+
+  <button type="submit">Predict Price Category</button>
+</form>
+
+
+
+  </main>
+
+  <footer>
+    <p>© 2025 Mobile Price Predictor | Developed with ❤️ using Flask & Scikit-learn</p>
+  </footer>
+
+</body>
+</html>
